@@ -19,4 +19,4 @@ function Data({user,del}) {
   ))
 }
 
-export default Data
+export default Data;
