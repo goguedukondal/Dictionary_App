@@ -1,11 +1,11 @@
 import React from 'react'
 import AddNewRow from './AddNewRow';
-import { useContext } from 'react';
-import { myContext } from './Context';
+// import { useContext } from 'react';
+// import { myContext } from './Context';
 import Data from './Data';
 
-function AddNewPerson() {
-  const [user,del,setUser,addButton] =useContext(myContext);
+function AddNewPerson({user,del,addButton,setUser}) {
+  //const [user,del,setUser,addButton] =useContext(myContext);
 
   return (
     <>
@@ -27,7 +27,7 @@ function AddNewPerson() {
         
         <Data user={user} del={del} />
         {
-          addButton?(<AddNewRow />):('')
+          addButton?(<AddNewRow user={user} setUser={setUser} />):('')
         }
       </tbody>
       </table>
