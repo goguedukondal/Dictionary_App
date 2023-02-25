@@ -1,13 +1,10 @@
 import React, { useState,useEffect } from 'react'
-import { myContext } from './Context';
-import { useContext } from 'react';
 
 
 
 
-
-function AddNewRow() {
-  const [user,del,setUser,addButton]=useContext(myContext);
+function AddNewRow({user,setUser}) {
+ // const [user,setUser,addButton]=useContext(myContext);
   
    const[name,setName]=useState('');
    const[birth,setBirth]=useState('');
