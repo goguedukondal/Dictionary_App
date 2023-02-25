@@ -4,21 +4,21 @@ import './App.css';
 import RetrieveInformation from './Components/RetrieveInformation';
 import AddNewPerson from './Components/AddNewPerson';
 import { useState } from 'react';
-import { myContext } from './Components/Context';
+//import { myContext } from './Components/Context';
 
-const userData=()=>{
-  const data=localStorage.getItem('user');
-  if(data){
-    return JSON.parse(data)
-  }
-  else{
-    return []
-  }
-}
+// const userData=()=>{
+//   const data=localStorage.getItem('user');
+//   if(data){
+//     return JSON.parse(data)
+//   }
+//   else{
+//     return []
+//   }
+// }
 
 function App() {
 
-  const [user,setUser]=useState(userData())
+  const [user,setUser]=useState([])
 
   const [addButton,setAddButton] =useState(false);
   const [addNewPerson,setAddNewPerson] =useState(true)
@@ -52,23 +52,24 @@ function App() {
         <button className='btn' onClick={handleRetrieveButton}>Retrieve Information</button>
         
       </div>
-      <myContext.Provider value={[user,del,setUser,addButton]}>
+      {/* <myContext.Provider value={[user,del,setUser,addButton]}> */}
       {!retrieveInformation&&addNewPerson?
       (<div className='tableContainer'>
         <h3>Add New Person</h3>
-        <AddNewPerson />
+        <AddNewPerson user={user} del={del} addButton={addButton} setUser={setUser}/>
         <button className='addbtn' onClick={addButtonClicked}>Add</button>
         </div>)
       :
       (<div className='tableContainer'>
       <h3>Retrieve Information</h3>
-      <RetrieveInformation/>
+      <RetrieveInformation user={user}/>
       
       </div>)
       }
-      </myContext.Provider>
+      {/* </myContext.Provider> */}
     </div>
   );
 }
 
 export default App;
+
