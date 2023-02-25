@@ -1,10 +1,10 @@
 import React, { useRef, useState } from 'react'
-import { useContext } from 'react'
-import { myContext } from './Context'
+// import { useContext } from 'react'
+// import { myContext } from './Context'
 
 
-function RetrieveInformation() {
-  const [user,del,setUser,addButton]=useContext(myContext)
+function RetrieveInformation({user}) {
+ // const [user]=useContext(myContext)
  
 const[data,setData]=useState('')
 
